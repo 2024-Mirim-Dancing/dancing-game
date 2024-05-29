@@ -1,0 +1,54 @@
+.container{
+    position: relative;
+    width: 61.46vw; 
+    height: 10.83vh;
+    margin-bottom: 5.06vh;
+}
+
+.background {
+    position: relative;
+    z-index: 0; 
+}
+.score_background{
+    left: 10%;
+    top: 52%;
+    transform: translate(-50%, -50%);
+    position: absolute;
+    z-index: 1;
+}
+
+.ranking{
+    color: #fff;
+    font-size: 80px;
+    left: 10%;
+    top: 45%;
+    transform: translate(-50%, -50%);
+    position: absolute;
+    font-weight: 700;
+    z-index: 100;
+}
+
+.name{
+    color: #00631C;
+    font-size: 80px;
+    left: 55%;
+    top: 45%;
+    transform: translate(-50%, -50%);
+    position: absolute;
+    font-weight: 600;
+    z-index: 100;
+    text-align: center;
+}
+
+.score{
+    color: #00631C;
+    font-size: 80px;
+    left: 90%;
+    top: 45%;
+    transform: translate(-50%, -50%);
+    position: absolute;
+    font-weight: 600;
+    z-index: 100;
+    text-align: center;
+    width: 450px;
+}
