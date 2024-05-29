@@ -1,0 +1,25 @@
+.container {
+    background-image: url(/public/images/ranking/background.svg);
+    width: 100vw;
+    height: 100vh;
+    position: fixed;
+    display: flex;
+    justify-content: center;
+}
+
+.title {
+    top: 4.81vh;
+    position: fixed;
+}
+
+.arrow {
+    position: fixed;
+    top: 7.69vh;
+    left: 19.32vw;
+    cursor: pointer;
+}
+
+.content{
+    position: fixed;
+    top: 21vh;
+}
