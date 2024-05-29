@@ -1,0 +1,28 @@
+.container {
+    background-image: url(/public/images/teacher/background.svg);
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    position: fixed;
+}
+
+.slider {
+    height: 34.63vh;
+    width: 61.41vw;
+}
+
+.slick-slide {
+    transition: transform 0.5s ease;
+}
+
+.slick-slide:not(.slick-center) {
+    transform: scale(0.85);
+}
+
+.slick-center {
+    transform: scale(1);
+}
