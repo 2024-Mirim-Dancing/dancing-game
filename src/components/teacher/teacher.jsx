@@ -4,9 +4,9 @@ import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import "../../css/teacher/teacher.css"
+import { CustomPrevArrow, CustomNextArrow } from "./custom-arrow ";
 
 const Teacher = () => {
-    const [currentSlide, setCurrentSlide] = useState(0);
 
     const settings = {
         className: "center",
@@ -15,7 +15,8 @@ const Teacher = () => {
         slidesToShow: 3,
         speed: 500,
         centerMode: true,
-        beforeChange: (current, next) => setCurrentSlide(next),
+        prevArrow: <CustomPrevArrow />,
+        nextArrow: <CustomNextArrow />,
     };
 
     return (

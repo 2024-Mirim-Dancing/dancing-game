@@ -26,3 +26,16 @@
 .slick-center {
     transform: scale(1);
 }
+.slick-next::before,
+.slick-prev::before {
+    display: none !important;
+}
+
+.slick-next{
+    margin-top: -80px;
+    margin-left: 120px;
+}
+
+.slick-prev{
+    margin-top: -80px;
+}
