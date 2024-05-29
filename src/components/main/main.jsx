@@ -11,7 +11,7 @@ const Main = () => {
                 <img src={`${process.env.PUBLIC_URL}/images/main/title.svg`} />
             </div>
             <div className={styles.btn}>
-                <Link to='/rankig'><img src={`${process.env.PUBLIC_URL}/images/main/ranking-btn.png`} /></Link>
+                <Link to='/ranking'><img src={`${process.env.PUBLIC_URL}/images/main/ranking-btn.png`} /></Link>
                 <Link to='/nickname'><img src={`${process.env.PUBLIC_URL}/images/main/gamestart-btn.svg`} /></Link>
             </div>
         </div>
