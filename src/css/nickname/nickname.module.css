@@ -1,0 +1,39 @@
+.container {
+    background-image: url(/public/images/comm/main-background.svg);
+    width: 100vw;
+    height: 100vh;
+    position: fixed;
+}
+
+.title{
+    text-align: center;
+    margin-top:34.11vh;
+}
+
+.input_container{
+    position: relative;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.input img{
+    display: block;
+    width: 100%;
+    height: 100%;
+}
+
+.inputbox{
+    position: absolute;
+    text-align: center;
+    background-color:transparent;
+    border: none;
+    cursor: pointer;
+    font-size: 70px;
+    padding-left: 100px;
+    width: 55.1vw;
+    height: 11.67vh;
+}
