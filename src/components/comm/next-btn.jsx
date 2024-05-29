@@ -10,6 +10,8 @@ const NextBtn = () => {
     const handleNextBtn = () =>{
         if(currentPath.endsWith('nickname'))
             navigate('/teacher');
+        else if(currentPath.endsWith('teacher'))
+            navigate('/start')
     }
 
     return (
