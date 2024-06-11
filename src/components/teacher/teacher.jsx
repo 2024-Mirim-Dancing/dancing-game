@@ -26,22 +26,22 @@ const Teacher = () => {
             </div>
             <Slider {...settings} className="slider">
                 <div className="teacher">
-                    <img src={`${process.env.PUBLIC_URL}/images/teacher/teacher-box.svg`} />
+                    <img src={`${process.env.PUBLIC_URL}/images/teacher/sms-box.svg`} />
                 </div>
                 <div className="teacher">
-                    <img src={`${process.env.PUBLIC_URL}/images/teacher/teacher-box.svg`} />
+                    <img src={`${process.env.PUBLIC_URL}/images/teacher/kjs-box.svg`} />
                 </div>
                 <div className="teacher">
-                    <img src={`${process.env.PUBLIC_URL}/images/teacher/teacher-box.svg`} />
+                    <img src={`${process.env.PUBLIC_URL}/images/teacher/khs-box.svg`} />
                 </div>
                 <div className="teacher">
-                    <img src={`${process.env.PUBLIC_URL}/images/teacher/teacher-box.svg`} />
+                    <img src={`${process.env.PUBLIC_URL}/images/teacher/kyh-box.svg`} />
                 </div>
                 <div className="teacher">
-                    <img src={`${process.env.PUBLIC_URL}/images/teacher/teacher-box.svg`} />
+                    <img src={`${process.env.PUBLIC_URL}/images/teacher/ybs-box.svg`} />
                 </div>
                 <div className="teacher">
-                    <img src={`${process.env.PUBLIC_URL}/images/teacher/teacher-box.svg`} />
+                    <img src={`${process.env.PUBLIC_URL}/images/teacher/kyc-box.svg`} />
                 </div>
             </Slider>
         </div>
