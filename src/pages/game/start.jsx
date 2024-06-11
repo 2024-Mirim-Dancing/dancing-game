@@ -1,16 +1,40 @@
-import React, { useEffect, useRef } from "react";
+import React, { useEffect, useRef, useState } from "react";
 
 import Start from "../../components/game/start";
 import Timebar from "../../components/game/timebar";
 
 const StartPage = () => {
     const audioRef = useRef(null);
+    const [isPlaying, setIsPlaying] = useState(false);
+
+    const handleKeyDown = (event) => {
+        if (event.code === "Space") {
+            if (audioRef.current && !isPlaying) {
+                audioRef.current.play();
+                setIsPlaying(true);
+            }
+        }
+    };
+
+    const handleKeyUp = (event) => {
+        if (event.code === "Space") {
+            if (audioRef.current && isPlaying) {
+                audioRef.current.pause();
+                audioRef.current.currentTime = 0;
+                setIsPlaying(false);
+            }
+        }
+    };
 
     useEffect(() => {
-        if (audioRef.current) {
-            audioRef.current.play();
-        }
-    }, []);
+        window.addEventListener("keydown", handleKeyDown);
+        window.addEventListener("keyup", handleKeyUp);
+
+        return () => {
+            window.removeEventListener("keydown", handleKeyDown);
+            window.removeEventListener("keyup", handleKeyUp);
+        };
+    }, [isPlaying]);
 
     return (
         <>
