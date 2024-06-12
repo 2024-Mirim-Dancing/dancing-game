@@ -45,3 +45,12 @@
     left: 65.05vw;
     top: 50vh;
 }
+
+.score{
+    font-size: 90px;
+    position: fixed;
+    left: 86.15vw;
+    top: 0.93vh;
+    color: #00631C;
+    font-weight: 600;
+}

@@ -10,6 +10,7 @@ const Start = () => {
     const [isTeacherVisible, setIsTeacherVisible] = useState(false);
     const [showTeacherSide, setShowTeacherSide] = useState(false);
     const [spacePressed, setSpacePressed] = useState(false);
+    const [score, setScore] = useState(0);
 
     const navigate = useNavigate();
 
@@ -87,6 +88,7 @@ const Start = () => {
 
     useEffect(() => {
         let studentTimer;
+        let scoreTimer;
 
         if (spacePressed) {
             studentTimer = setInterval(() => {
@@ -96,6 +98,11 @@ const Start = () => {
                         : `${process.env.PUBLIC_URL}/images/game/student3-1.svg`
                 );
             }, 200);
+
+            scoreTimer = setInterval(() => {
+                setScore(prevScore => prevScore + 1);
+            }, 100); // 0.1초마다 점수 증가
+
         } else {
             // 스페이스바가 눌리지 않은 경우 타이머를 정리하고 이미지 초기화
             clearInterval(studentTimer);
@@ -148,6 +155,9 @@ const Start = () => {
             </div>
             <div className={styles.student3}>
                 <img src={student3Img} />
+            </div>
+            <div className={styles.score}>
+                {score}
             </div>
         </div>
     );
