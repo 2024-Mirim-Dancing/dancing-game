@@ -15,3 +15,26 @@
     width: 13.4vw;
     height: 58.8vh;
 }
+
+.student1{
+    position: fixed;
+    left: 19.27vw;
+    top: 50vh;
+}
+
+.student1 img{
+    width: 14.53vw;
+    height: 39.07vh;
+}
+
+
+.student2{
+    position: fixed;
+    left: 42.14vw;
+    top: 50vh;
+}
+
+.student1 img{
+    width: 14.53vw;
+    height: 39.07vh;
+}

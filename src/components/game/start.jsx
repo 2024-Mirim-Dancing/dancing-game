@@ -2,12 +2,12 @@ import React, { useEffect, useState } from "react";
 import styles from "../../css/game/start.module.css";
 
 const Start = () => {
-    // 이미지 경로 상태 설정
     const [imageSrc, setImageSrc] = useState(`${process.env.PUBLIC_URL}/images/game/KYC_3.svg`);
-    // 선생님이 정면을 보고 있는지 여부를 나타내는 상태
+    const [student1Img, setStudent1Img] = useState(`${process.env.PUBLIC_URL}/images/game/student1-1.svg`);
+    const [student2Img, setStudent2Img] = useState(`${process.env.PUBLIC_URL}/images/game/student2-1.svg`);
     const [isTeacherVisible, setIsTeacherVisible] = useState(false);
-    // 선생님이 옆을 보고 있는지 여부를 나타내는 상태
     const [showTeacherSide, setShowTeacherSide] = useState(false);
+
 
     useEffect(() => {
         let teacherBackTimer;
@@ -42,6 +42,7 @@ const Start = () => {
             }, teacherBackTime * 1000);
         };
 
+
         // 첫 사이클 시작
         startCycle();
 
@@ -53,10 +54,44 @@ const Start = () => {
         };
     }, []);
 
+    useEffect(() => {
+        let studentTimer;
+
+        if (!isTeacherVisible) {
+            studentTimer = setInterval(() => {
+                setStudent1Img((prev) =>
+                    prev === `${process.env.PUBLIC_URL}/images/game/student1-1.svg`
+                        ? `${process.env.PUBLIC_URL}/images/game/student1-2.svg`
+                        : `${process.env.PUBLIC_URL}/images/game/student1-1.svg`
+                );
+                setStudent2Img((prev) =>
+                    prev === `${process.env.PUBLIC_URL}/images/game/student2-1.svg`
+                        ? `${process.env.PUBLIC_URL}/images/game/student2-2.svg`
+                        : `${process.env.PUBLIC_URL}/images/game/student2-1.svg`
+                );
+            }, 200);
+        } else {
+            // 학생 이미지 변경 타이머 해제 및 초기화
+            clearInterval(studentTimer);
+            setStudent1Img(`${process.env.PUBLIC_URL}/images/game/student1-1.svg`);
+            setStudent2Img(`${process.env.PUBLIC_URL}/images/game/student2-1.svg`);
+        }
+
+        return () => {
+            clearInterval(studentTimer);
+        };
+    }, [isTeacherVisible]);
+
     return (
         <div className={styles.container}>
             <div className={styles.teacher}>
                 <img src={imageSrc} alt="Teacher" />
+            </div>
+            <div className={styles.student1}>
+                <img src={student1Img} />
+            </div>
+            <div className={styles.student2}>
+                <img src={student2Img} />
             </div>
         </div>
     );

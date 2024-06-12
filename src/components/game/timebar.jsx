@@ -29,7 +29,7 @@ const Timebar = () => {
     useEffect(() => {
         console.log(completed)
         if (completed <= 0) {
-            navigate("/end");
+            // navigate("/end");
         }
     }, [completed, navigate]);
 
