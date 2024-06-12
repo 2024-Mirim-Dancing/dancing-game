@@ -5,8 +5,10 @@ const Start = () => {
     const [imageSrc, setImageSrc] = useState(`${process.env.PUBLIC_URL}/images/game/KYC_3.svg`);
     const [student1Img, setStudent1Img] = useState(`${process.env.PUBLIC_URL}/images/game/student1-1.svg`);
     const [student2Img, setStudent2Img] = useState(`${process.env.PUBLIC_URL}/images/game/student2-1.svg`);
+    const [student3Img, setStudent3Img] = useState(`${process.env.PUBLIC_URL}/images/game/student3-1.svg`);
     const [isTeacherVisible, setIsTeacherVisible] = useState(false);
     const [showTeacherSide, setShowTeacherSide] = useState(false);
+    const [spacePressed, setSpacePressed] = useState(false);
 
 
     useEffect(() => {
@@ -82,6 +84,54 @@ const Start = () => {
         };
     }, [isTeacherVisible]);
 
+    useEffect(() => {
+        let studentTimer;
+
+        if (spacePressed) {
+            studentTimer = setInterval(() => {
+                setStudent3Img((prev) =>
+                    prev === `${process.env.PUBLIC_URL}/images/game/student3-1.svg`
+                        ? `${process.env.PUBLIC_URL}/images/game/student3-2.svg`
+                        : `${process.env.PUBLIC_URL}/images/game/student3-1.svg`
+                );
+            }, 200);
+        } else {
+            // 스페이스바가 눌리지 않은 경우 타이머를 정리하고 이미지 초기화
+            clearInterval(studentTimer);
+            setStudent3Img(`${process.env.PUBLIC_URL}/images/game/student3-1.svg`);
+        }
+
+        return () => {
+            clearInterval(studentTimer);
+        };
+    }, [spacePressed]);
+
+    // 키보드 이벤트 핸들러: 스페이스바 눌림 상태 감지
+    const handleKeyDown = (event) => {
+        if (event.keyCode === 32) { // 스페이스바의 keyCode는 32
+            setSpacePressed(true);
+        }
+    };
+
+    // 키보드 이벤트 핸들러: 스페이스바 떼어짐 상태 감지
+    const handleKeyUp = (event) => {
+        if (event.keyCode === 32) { // 스페이스바의 keyCode는 32
+            setSpacePressed(false);
+        }
+    };
+
+    // 이벤트 리스너 등록
+    useEffect(() => {
+        document.addEventListener("keydown", handleKeyDown);
+        document.addEventListener("keyup", handleKeyUp);
+        // 이벤트 리스너 해제
+        return () => {
+            document.removeEventListener("keydown", handleKeyDown);
+            document.removeEventListener("keyup", handleKeyUp);
+        };
+    }, []);
+
+
     return (
         <div className={styles.container}>
             <div className={styles.teacher}>
@@ -92,6 +142,9 @@ const Start = () => {
             </div>
             <div className={styles.student2}>
                 <img src={student2Img} />
+            </div>
+            <div className={styles.student3}>
+                <img src={student3Img} />
             </div>
         </div>
     );

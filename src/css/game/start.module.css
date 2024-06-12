@@ -34,7 +34,14 @@
     top: 50vh;
 }
 
-.student1 img{
+.student2 img{
     width: 14.53vw;
     height: 39.07vh;
+}
+
+
+.student3{
+    position: fixed;
+    left: 65.05vw;
+    top: 50vh;
 }
