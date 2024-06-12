@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import styles from "../../css/game/start.module.css";
 
 const Start = () => {
@@ -10,6 +11,7 @@ const Start = () => {
     const [showTeacherSide, setShowTeacherSide] = useState(false);
     const [spacePressed, setSpacePressed] = useState(false);
 
+    const navigate = useNavigate();
 
     useEffect(() => {
         let teacherBackTimer;
@@ -19,7 +21,7 @@ const Start = () => {
         const startCycle = () => {
             const teacherBackTime = Math.random() * 4 + 1; // 1~5초 사이의 난수
             const teacherFrontTime = Math.random() * 5 + 1; // 1~6초 사이의 난수
-            const teacherSideTime = 0.25; // 고정 0.25초
+            const teacherSideTime = 0.35; // 고정 0.25초
 
             // 뒷모습을 일정 시간 보여줌
             teacherBackTimer = setTimeout(() => {
@@ -43,7 +45,6 @@ const Start = () => {
                 }, teacherSideTime * 1000);
             }, teacherBackTime * 1000);
         };
-
 
         // 첫 사이클 시작
         startCycle();
@@ -110,6 +111,9 @@ const Start = () => {
     const handleKeyDown = (event) => {
         if (event.keyCode === 32) { // 스페이스바의 keyCode는 32
             setSpacePressed(true);
+            if (isTeacherVisible) {
+                navigate("/end"); // isTeacherVisible이 true일 때 "/end"로 이동
+            }
         }
     };
 
@@ -129,8 +133,7 @@ const Start = () => {
             document.removeEventListener("keydown", handleKeyDown);
             document.removeEventListener("keyup", handleKeyUp);
         };
-    }, []);
-
+    }, [isTeacherVisible]); // isTeacherVisible 상태에 따라 이벤트 리스너 등록
 
     return (
         <div className={styles.container}>
