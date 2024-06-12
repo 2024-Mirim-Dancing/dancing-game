@@ -5,3 +5,13 @@
     position: fixed;
     z-index: -1;
 }
+
+.teacher{
+    position: fixed;
+    left: 66.19vw;
+}
+
+.teacher img{
+    width: 13.4vw;
+    height: 58.8vh;
+}
