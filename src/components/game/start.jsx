@@ -119,7 +119,7 @@ const Start = () => {
         if (event.keyCode === 32) { // 스페이스바의 keyCode는 32
             setSpacePressed(true);
             if (isTeacherVisible) {
-                navigate("/end"); // isTeacherVisible이 true일 때 "/end"로 이동
+                navigate("/end", {state: {score}}); // isTeacherVisible이 true일 때 "/end"로 이동
             }
         }
     };
