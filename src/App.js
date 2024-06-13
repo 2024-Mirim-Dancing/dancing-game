@@ -6,6 +6,7 @@ import NicknamePage from './pages/nickname/nickname-page';
 import TeacherPage from './pages/teacher/teacher-page';
 import RankingPage from './pages/ranking/ranking-page';
 import StartPage from './pages/game/start';
+import EndPage from './pages/end/end';
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
         <Route path='/teacher' element={<TeacherPage />} />
         <Route path='/ranking' element={<RankingPage/>} />
         <Route path='/start' element={<StartPage/>} />
+        <Route path='/end' element={<EndPage/>} />
       </Routes>
     </Router>
   )
