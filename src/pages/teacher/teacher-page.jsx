@@ -7,7 +7,6 @@ const TeacherPage = () => {
     return (
         <>
             <Teacher />
-            <NextBtn/>
         </>
     )
 }

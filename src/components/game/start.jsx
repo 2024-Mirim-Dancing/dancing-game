@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useLocation } from "react-router-dom";
 import styles from "../../css/game/start.module.css";
 
 const Start = () => {
@@ -13,6 +13,10 @@ const Start = () => {
     const [score, setScore] = useState(0);
 
     const navigate = useNavigate();
+    const location = useLocation();
+    const { teacherName } = location.state || { teacherName: "Default Teacher" };
+
+    console.log(teacherName);
 
     useEffect(() => {
         let teacherBackTimer;
