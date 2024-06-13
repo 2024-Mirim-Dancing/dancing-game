@@ -2,8 +2,12 @@ import React, { useEffect, useState } from "react";
 import { useNavigate, useLocation } from "react-router-dom";
 import styles from "../../css/game/start.module.css";
 
-const Start = () => {
-    const [imageSrc, setImageSrc] = useState(`${process.env.PUBLIC_URL}/images/game/KYC_3.svg`);
+const Start = () => {    
+    const navigate = useNavigate();
+    const location = useLocation();
+
+    const { teacherName } = location.state || { teacherName: "Default Teacher" };
+    const [imageSrc, setImageSrc] = useState(`${process.env.PUBLIC_URL}/images/game/${teacherName}_3.svg`);
     const [student1Img, setStudent1Img] = useState(`${process.env.PUBLIC_URL}/images/game/student1-1.svg`);
     const [student2Img, setStudent2Img] = useState(`${process.env.PUBLIC_URL}/images/game/student2-1.svg`);
     const [student3Img, setStudent3Img] = useState(`${process.env.PUBLIC_URL}/images/game/student3-1.svg`);
@@ -11,12 +15,6 @@ const Start = () => {
     const [showTeacherSide, setShowTeacherSide] = useState(false);
     const [spacePressed, setSpacePressed] = useState(false);
     const [score, setScore] = useState(0);
-
-    const navigate = useNavigate();
-    const location = useLocation();
-    const { teacherName } = location.state || { teacherName: "Default Teacher" };
-
-    console.log(teacherName);
 
     useEffect(() => {
         let teacherBackTimer;
@@ -30,19 +28,19 @@ const Start = () => {
 
             // 뒷모습을 일정 시간 보여줌
             teacherBackTimer = setTimeout(() => {
-                setImageSrc(`${process.env.PUBLIC_URL}/images/game/KYC_2.svg`); // 옆모습 이미지로 설정
+                setImageSrc(`${process.env.PUBLIC_URL}/images/game/${teacherName}_2.svg`); // 옆모습 이미지로 설정
                 setShowTeacherSide(true); // 옆모습 상태 활성화
 
                 // 옆모습을 고정 시간(0.25초) 동안 보여줌
                 teacherSideTimer = setTimeout(() => {
                     setShowTeacherSide(false); // 옆모습 상태 비활성화
                     setIsTeacherVisible(true); // 정면 상태 활성화
-                    setImageSrc(`${process.env.PUBLIC_URL}/images/game/KYC_1.svg`); // 정면 이미지로 설정
+                    setImageSrc(`${process.env.PUBLIC_URL}/images/game/${teacherName}_1.svg`); // 정면 이미지로 설정
 
                     // 정면을 난수 시간 동안 보여줌
                     teacherFrontTimer = setTimeout(() => {
                         setIsTeacherVisible(false); // 정면 상태 비활성화
-                        setImageSrc(`${process.env.PUBLIC_URL}/images/game/KYC_3.svg`); // 뒷모습 이미지로 설정
+                        setImageSrc(`${process.env.PUBLIC_URL}/images/game/${teacherName}_3.svg`); // 뒷모습 이미지로 설정
 
                         // 다음 사이클 시작
                         startCycle();
@@ -123,7 +121,7 @@ const Start = () => {
         if (event.keyCode === 32) { // 스페이스바의 keyCode는 32
             setSpacePressed(true);
             if (isTeacherVisible) {
-                navigate("/end", {state: {score}}); // isTeacherVisible이 true일 때 "/end"로 이동
+                navigate("/end", { state: { score, teacherName } }); // isTeacherVisible이 true일 때 "/end"로 이동
             }
         }
     };
