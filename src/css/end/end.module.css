@@ -16,16 +16,57 @@
 
 
 .score{
-    font-size: 115px;
+    font-size: 150px;
     top: 17.24vh;
     left: 41.93vw;
     position: fixed;
     color: #00631C;
-    font-weight: bold;
+    text-align: center;
+}
+
+.scoreBox{
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .line{
     left: 42.29vw;
-    top: 21.8vh;
+    top: 20.8vh;
     position: fixed;
+}
+
+.line img{
+    width: 30vw;
+}
+
+.comment{
+    color: #C40000;
+    font-size: 130px;
+    top: 32.07vh;
+    left: 24.48vw;
+    position: fixed;
+    font-weight: 600;
+    width: 37vw;
+}
+
+.teacher{
+    left: 64.9vw;
+    top: 21.2vh;
+    position: fixed;
+}
+
+.teacherSms{
+    left: 64.9vw;
+    top: 21.2vh;
+    position: fixed;
+}
+
+
+.teacher img {
+    width: 18.99vw;
+}
+
+.teacherSms img{
+    width: 15.99vw;
 }
