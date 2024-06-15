@@ -37,3 +37,10 @@
     width: 55.1vw;
     height: 11.67vh;
 }
+
+.next_btn{
+    position: fixed;
+    top: 72.5vh;
+    left : 63.88vw;
+    cursor: pointer;
+}
