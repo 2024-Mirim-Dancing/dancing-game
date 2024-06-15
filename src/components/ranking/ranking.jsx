@@ -11,9 +11,9 @@ const Ranking = () => {
 
     //rankigData 대산 서버 연결하기
     const rankingData = [
-        { name: "박화경상남도독도", score: 1036456 },
-        { name: "정선영구업서예~", score: 95 },
-        { name: "임지현", score: 90 }
+        { name: "박화경상남도독도", score: 1036456, teacher: SMS },
+        { name: "정선영구업서예~", score: 95, teacher:SMS },
+        { name: "임지현", score: 90, teacher:SMS }
     ];
 
     const handleBackArrow = () =>{
@@ -30,8 +30,9 @@ const Ranking = () => {
             </div>
             <div className={styles.content}>
                 {rankingData.map((entry, index) => (
+                    //여기서 props로 데이터 넘겨주기
                     <RankingRow className={styles.ranking_row}
-                    key={index} ranking={index + 1} name={entry.name} score={entry.score} />
+                    key={index} ranking={index + 1} name={entry.name} score={entry.score} teacher={entry.teacher} />
                 ))}
             </div>
 

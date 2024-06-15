@@ -40,6 +40,14 @@
     text-align: center;
 }
 
+.teacher{    
+    left: 19%;
+    top: 53%;
+    transform: translate(-50%, -50%);
+    position: absolute;
+    width: 3.65vw;
+}
+
 .score{
     color: #00631C;
     font-size: 80px;
