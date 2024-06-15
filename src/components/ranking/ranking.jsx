@@ -9,8 +9,9 @@ import RankingRow from "./ranking-row";
 const Ranking = () => {
     const navigate = useNavigate();
 
+    //rankigData 대산 서버 연결하기
     const rankingData = [
-        { name: "박화경상남도독도", score: 103645545656 },
+        { name: "박화경상남도독도", score: 1036456 },
         { name: "정선영구업서예~", score: 95 },
         { name: "임지현", score: 90 }
     ];
