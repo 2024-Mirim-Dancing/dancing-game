@@ -121,11 +121,17 @@ const Start = () => {
         if (event.keyCode === 32) { // 스페이스바의 keyCode는 32
             setSpacePressed(true);
             if (isTeacherVisible) {
-                // 서버 연동하는 부분
-                const user_id = localStorage.getItem("userId");
-                const score = localStorage.getItem("score");
-                const teacher = localStorage.getItem("teacher");
-                
+
+                //연동 request data
+                const data = {
+                    user_id : localStorage.getItem("userId"),
+                    score : score,
+                    teacher: localStorage.getItem("teacher")
+                }
+
+                localStorage.removeItem("userId");
+                localStorage.removeItem("teacher");
+
                 navigate("/end", { state: { score, teacherName } }); // isTeacherVisible이 true일 때 "/end"로 이동
             }
         }
