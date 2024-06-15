@@ -11,6 +11,7 @@ const RankingRow = (props) => {
             <p className={styles.ranking}>{ranking}</p>
             <p className={styles.name}>{name}</p>
             <p className={styles.score}>{score}점</p>
+            <img src=""></img>
         </div>
     )
 }
