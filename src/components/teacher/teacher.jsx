@@ -38,6 +38,7 @@ const Teacher = () => {
 
     const handleNextBtn = () => {
         console.log(currentTeacher);
+        localStorage.setItem("teacher", currentTeacher);
         navigate('/start', { state: { teacherName: currentTeacher } });
     }
 
