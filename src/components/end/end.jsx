@@ -1,11 +1,12 @@
 import React, { useState, useEffect } from "react";
-import { useLocation } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 
 import "../../css/comm/all.css"
 import styles from "../../css/end/end.module.css"
 
 const End = () => {
     const location = useLocation();
+    const navigate = useNavigate();
     const { score } = location.state || { score: 0 };
     const { teacherName } = location.state || { teacherName: "" };
     const [comment, setComment] = useState("");
@@ -35,6 +36,15 @@ const End = () => {
         }
     }, [teacherName]);
 
+    const handleRankingbtn = () => {
+        navigate('/ranking');
+    }
+
+    const handleMainBtn = () => {
+        console.log("SFdfda");
+        navigate('/');
+    }
+
     const teacherClass = teacherName === "SMS" ? styles.teacherSms : styles.teacher;
 
     return (
@@ -42,15 +52,22 @@ const End = () => {
             <div className={styles.title}>당신의 점수는?</div>
             <div className={styles.scoreBox}>
                 <div className={styles.score}>{score}점</div>
-                <div className={styles.line}>
-                    <img src={`${process.env.PUBLIC_URL}/images/end/line.svg`} alt="line" />
-                </div>
             </div>
             <div className={styles.comment}>
                 {comment}
             </div>
             <div className={teacherClass}>
-                <img src={`${process.env.PUBLIC_URL}/images/game/${teacherName}_1.svg`} alt={teacherName} />
+                <img src={`${process.env.PUBLIC_URL}/images/game/${teacherName}_1.svg`} />
+            </div>
+            <div className={styles.btn}>
+                <div className={styles.rankingBtn} onClick={handleRankingbtn}>랭킹보기</div>
+                <div className={styles.rankingBtnLine}>
+                    <img src={`${process.env.PUBLIC_URL}/images/end/rankingBtnLine.svg`} />
+                </div>
+                <div className={styles.mainBtn} onClick={handleMainBtn}>메인으로</div>
+                <div className={styles.mainBtnLine}>
+                    <img src={`${process.env.PUBLIC_URL}/images/end/mainBtnLine.svg`} />
+                </div>
             </div>
         </div>
     );
