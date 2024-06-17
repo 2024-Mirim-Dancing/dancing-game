@@ -17,7 +17,7 @@ const Ranking = () => {
     ];
 
     const handleBackArrow = () =>{
-        navigate(-1);
+        navigate('/');
     }
 
     return (
