@@ -11,9 +11,9 @@ const Ranking = () => {
 
     //rankigData 대산 서버 연결하기
     const rankingData = [
-        { name: "박화경상남도독도", score: 1036456, teacher: SMS },
-        { name: "정선영구업서예~", score: 95, teacher:SMS },
-        { name: "임지현", score: 90, teacher:SMS }
+        { name: "박화경상남도독도", score: 1036456, teacher: "SMS" },
+        { name: "정선영구업서예~", score: 95, teacher:"SMS" },
+        { name: "임지현", score: 90, teacher:"SMS" }
     ];
 
     const handleBackArrow = () =>{
