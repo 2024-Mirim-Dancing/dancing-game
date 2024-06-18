@@ -1,15 +1,24 @@
-.container {
+.background {
     background-image: url(/public/images/ranking/background.svg);
     width: 100vw;
     height: 100vh;
     position: fixed;
+}
+
+.container {
     display: flex;
-    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 23vh;
+    max-height: 75vh;
+    overflow-y: auto;
+
 }
 
 .title {
-    top: 4.81vh;
     position: fixed;
+    top: 4.81vh;
+    left: 46.09vw;
 }
 
 .arrow {
@@ -17,9 +26,4 @@
     top: 7.69vh;
     left: 19.32vw;
     cursor: pointer;
-}
-
-.content{
-    position: fixed;
-    top: 21vh;
 }

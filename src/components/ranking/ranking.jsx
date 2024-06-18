@@ -28,23 +28,26 @@ const Ranking = () => {
     };
 
     return (
-        <div className={styles.container}>
+        <div className={styles.background}>
             <div className={styles.arrow} onClick={handleBackArrow}>
                 <img src={`${process.env.PUBLIC_URL}/images/ranking/pre-arrow.svg`} alt="Back Arrow" />
             </div>
             <div className={styles.title}>
                 <img src={`${process.env.PUBLIC_URL}/images/ranking/title.svg`} alt="Ranking Title" />
             </div>
-            <div className={styles.content}>
-                {rankingData.map((entry, index) => (
-                    <RankingRow
-                        key={index}
-                        ranking={index + 1}
-                        name={entry.user_id} // 서버에서 user_id로 제공됨
-                        score={entry.score}
-                        teacher={entry.teacher}
-                    />
-                ))}
+            
+            <div className={styles.container}>
+                <div className={styles.content}>
+                    {rankingData.map((entry, index) => (
+                        <RankingRow
+                            key={index}
+                            ranking={index + 1}
+                            name={entry.user_id} // 서버에서 user_id로 제공됨
+                            score={entry.score}
+                            teacher={entry.teacher}
+                        />
+                    ))}
+                </div>
             </div>
         </div>
     );
