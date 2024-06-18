@@ -7,6 +7,7 @@ import TeacherPage from './pages/teacher/teacher-page';
 import RankingPage from './pages/ranking/ranking-page';
 import StartPage from './pages/game/start';
 import EndPage from './pages/end/end';
+import ExplainPage from './components/explain/explain';
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
         <Route path='/ranking' element={<RankingPage/>} />
         <Route path='/start' element={<StartPage/>} />
         <Route path='/end/:teacherName' element={<EndPage />} />
+        <Route path='/explain' element={<ExplainPage />} />
       </Routes>
     </Router>
   )

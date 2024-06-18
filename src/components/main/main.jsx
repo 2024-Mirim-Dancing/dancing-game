@@ -12,7 +12,7 @@ const Main = () => {
             </div>
             <div className={styles.btn}>
                 <Link to='/ranking'><img src={`${process.env.PUBLIC_URL}/images/main/ranking-btn.png`} /></Link>
-                <Link to='/nickname'><img src={`${process.env.PUBLIC_URL}/images/main/gamestart-btn.svg`} /></Link>
+                <Link to='/explain'><img src={`${process.env.PUBLIC_URL}/images/main/gamestart-btn.svg`} /></Link>
             </div>
         </div>
     )
