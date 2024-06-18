@@ -1,43 +1,53 @@
-import React from "react";
-
+import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-
-import styles from "../../css/ranking/ranking.module.css"
+import axios from "axios";
+import styles from "../../css/ranking/ranking.module.css";
 import RankingRow from "./ranking-row";
-
 
 const Ranking = () => {
     const navigate = useNavigate();
+    const [rankingData, setRankingData] = useState([]);
 
-    //rankigData 대산 서버 연결하기
-    const rankingData = [
-        { name: "박화경상남도독도", score: 1036456, teacher: "SMS" },
-        { name: "정선영구업서예~", score: 95, teacher:"SMS" },
-        { name: "임지현", score: 90, teacher:"SMS" }
-    ];
+    useEffect(() => {
+        const fetchRankingData = async () => {
+            try {
+                const response = await axios.get("http://127.0.0.1:3001/ranking");
+                if (response.data && response.data.ranking) {
+                    setRankingData(response.data.ranking);
+                }
+            } catch (error) {
+                console.error("Error fetching ranking data:", error);
+            }
+        };
 
-    const handleBackArrow = () =>{
-        navigate('/');
-    }
+        fetchRankingData();
+    }, []);
+
+    const handleBackArrow = () => {
+        navigate("/");
+    };
 
     return (
         <div className={styles.container}>
             <div className={styles.arrow} onClick={handleBackArrow}>
-                <img src={`${process.env.PUBLIC_URL}/images/ranking/pre-arrow.svg`} />
+                <img src={`${process.env.PUBLIC_URL}/images/ranking/pre-arrow.svg`} alt="Back Arrow" />
             </div>
             <div className={styles.title}>
-                <img src={`${process.env.PUBLIC_URL}/images/ranking/title.svg`} />
+                <img src={`${process.env.PUBLIC_URL}/images/ranking/title.svg`} alt="Ranking Title" />
             </div>
             <div className={styles.content}>
                 {rankingData.map((entry, index) => (
-                    //여기서 props로 데이터 넘겨주기
-                    <RankingRow className={styles.ranking_row}
-                    key={index} ranking={index + 1} name={entry.name} score={entry.score} teacher={entry.teacher} />
+                    <RankingRow
+                        key={index}
+                        ranking={index + 1}
+                        name={entry.user_id} // 서버에서 user_id로 제공됨
+                        score={entry.score}
+                        teacher={entry.teacher}
+                    />
                 ))}
             </div>
-
         </div>
-    )
-}
+    );
+};
 
 export default Ranking;
