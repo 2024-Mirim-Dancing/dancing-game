@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useNavigate, useLocation } from "react-router-dom";
 import styles from "../../css/game/start.module.css";
 
-const Start = () => {    
+const Start = () => {
     const navigate = useNavigate();
     const location = useLocation();
 
@@ -124,15 +124,15 @@ const Start = () => {
 
                 //연동 request data
                 const data = {
-                    user_id : localStorage.getItem("userId"),
-                    score : score,
+                    user_id: localStorage.getItem("userId"),
+                    score: score,
                     teacher: localStorage.getItem("teacher")
                 }
 
                 localStorage.removeItem("userId");
                 localStorage.removeItem("teacher");
 
-                navigate("/end", { state: { score, teacherName } }); // isTeacherVisible이 true일 때 "/end"로 이동
+                navigate(`/end/${teacherName}`, { state: { score, teacherName } });
             }
         }
     };

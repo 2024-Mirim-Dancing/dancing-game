@@ -17,7 +17,7 @@ function App() {
         <Route path='/teacher' element={<TeacherPage />} />
         <Route path='/ranking' element={<RankingPage/>} />
         <Route path='/start' element={<StartPage/>} />
-        <Route path='/end' element={<EndPage/>} />
+        <Route path='/end/:teacherName' element={<EndPage />} />
       </Routes>
     </Router>
   )
