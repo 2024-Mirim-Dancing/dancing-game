@@ -81,6 +81,7 @@
 
 .rankingBtn, .mainBtn{
     font-size: 82px;
+    cursor: pointer;
 }
 
 .rankingBtn{
@@ -92,6 +93,7 @@
     left: 24.2vw;
     top: 46.5vh;
     position: fixed;
+    cursor: pointer;
 }
 
 .rankingBtnLine img{
@@ -103,10 +105,11 @@
 }
 
 .mainBtnLine{
-    left: 33.5vw;
+    left: 34.5vw;
     top: 47.6vh;
     position: fixed;
     display: none;
+    cursor: pointer;
 }
 
 .mainBtnLine img{
