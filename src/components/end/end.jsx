@@ -12,21 +12,26 @@ const End = () => {
     const { teacherName } = location.state || { teacherName: "" };
     const [comment, setComment] = useState("");
     const nickname = localStorage.getItem("nickname"); // LocalStorage에서 닉네임 불러오기
-    
+    const [teacherClass, setTeacherClass] = useState(styles.teacher);
+    const [teacherText, setTeacherText] = useState(styles.comment);
+
     // 선생님 한국어 이름에 따라 코멘트 설정
     useEffect(() => {
         switch (teacherName) {
             case "SMS":
                 setComment("칠판 보세요 칠판~");
+                setTeacherClass(styles.teacherSms);
                 break;
             case "KYC":
                 setComment("춤 잘 추는데 자퇴하고 아이돌이나 한 번 해봐~");
+                setTeacherText(styles.textKyc);
                 break;
             case "KYH":
-                setComment("어이 크라이 다메다로");
+                setComment("아이 크라이 다메다로");
                 break;
             case "KJS":
                 setComment("여기봐 어디보니 집중해라");
+                setTeacherText(styles.textKjs);
                 break;
             case "KHS":
                 setComment("계속해봐 멋있다.");
@@ -74,16 +79,13 @@ const End = () => {
         navigate("/");
     };
 
-    // 선생님 스타일 클래스 설정
-    const teacherClass = teacherName === "SMS" ? styles.teacherSms : styles.teacher;
-
     return (
         <div className={styles.container}>
             <div className={styles.title}>당신의 점수는?</div>
             <div className={styles.scoreBox}>
                 <div className={styles.score}>{score}점</div>
             </div>
-            <div className={styles.comment}>{comment}</div>
+            <div className={teacherText}>{comment}</div>
             <div className={teacherClass}>
                 {/* 선생님 이미지 출력 */}
                 <img

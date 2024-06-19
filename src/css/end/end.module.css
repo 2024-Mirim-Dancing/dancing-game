@@ -119,3 +119,23 @@
 .mainBtn:hover + .mainBtnLine {
     display: flex;
 }
+
+.textKjs{
+    color: #C40000;
+    font-size: 130px;
+    top: 25.07vh;
+    left: 24.48vw;
+    position: fixed;
+    font-weight: 600;
+    width: 37vw;
+}
+
+.textKyc{
+    color: #C40000;
+    font-size: 110px;
+    top: 25.07vh;
+    left: 24.48vw;
+    position: fixed;
+    font-weight: 600;
+    width: 37vw;
+}
