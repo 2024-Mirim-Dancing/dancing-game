@@ -1,11 +1,15 @@
 import React, { useEffect, useState } from "react";
-import { Navigate, useNavigate } from "react-router-dom";
+import {useLocation, useNavigate } from "react-router-dom";
 import ProgressBar from "@ramonak/react-progress-bar";
 
 import styles from "../../css/game/timebar.module.css"
 const Timebar = () => {
     const [completed, setCompleted] = useState(100);
     const [spacePressed, setSpacePressed] = useState(false);
+    const [score, setScore] = useState(0);
+    const location = useLocation();
+    const [teacherName, setTeacherName] = useState(localStorage.getItem("teacher"));
+
 
     const navigate = useNavigate();
     useEffect(() => {
@@ -29,7 +33,7 @@ const Timebar = () => {
     useEffect(() => {
         console.log(completed)
         if (completed <= 0) {
-            // navigate("/end");
+            navigate(`/end/${teacherName}`, { state: { score, teacherName } });
         }
     }, [completed, navigate]);
 
@@ -54,6 +58,18 @@ const Timebar = () => {
             window.removeEventListener("keyup", handleKeyUp);
         };
     }, []);
+
+
+    useEffect(() => {
+        let scoreTimer;
+
+        if(spacePressed) {
+            scoreTimer = setInterval(() => {
+                setScore(prevScore => prevScore + 1);
+            }, 100);
+        }
+    }, [spacePressed]);
+
 
     return (
         <>
