@@ -24,7 +24,7 @@ const Start = () => {
         const startCycle = () => {
             const teacherBackTime = Math.random() * 4 + 1; // 1~5초 사이의 난수
             const teacherFrontTime = Math.random() * 5 + 1; // 1~6초 사이의 난수
-            const teacherSideTime = 0.35; // 고정 0.25초
+            const teacherSideTime = 0.3; // 고정 0.25초
 
             // 뒷모습을 일정 시간 보여줌
             teacherBackTimer = setTimeout(() => {
